@@ -8,14 +8,7 @@ public class obstacle_behavior : MonoBehaviour
 
     void Start()
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * speed,ForceMode.VelocityChange);
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce((Vector3.left * speed)*transform.localScale.x,ForceMode.VelocityChange);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "player")
-        {
-            Destroy(collision.gameObject);
-        }
-    }
 }
